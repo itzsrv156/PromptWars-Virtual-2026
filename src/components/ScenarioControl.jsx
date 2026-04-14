@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { AlertTriangle, CloudRain, Zap, Flag, Pause } from 'lucide-react';
+import { TriangleAlert as AlertTriangle, CloudRain, Zap, Flag, Pause } from 'lucide-react';
 import { useRace } from '../context/RaceContext';
 import { telemetryService } from '../services/supabaseClient';
 

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { AlertTriangle, Cloud } from 'lucide-react';
+import { TriangleAlert as AlertTriangle, Cloud } from 'lucide-react';
 import { useRace } from '../context/RaceContext';
 import { useEffect, useState } from 'react';
 
