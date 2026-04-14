@@ -1,15 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .glass-panel {
-    @apply bg-race-panel/80 backdrop-blur-md border border-white/5 shadow-xl;
+:root {
+  --color-primary: #1e3050;
+  --color-accent: #0066ff;
+  --color-glow: #0099ff;
+  --color-text: #ffffff;
+  --color-border: rgba(0, 153, 255, 0.3);
+  --team-font: 'Orbitron', sans-serif;
+  --team-color: #0066ff;
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-b from-[#0a0a0c] via-black to-[#0a0a0c] text-white font-sans;
+    font-family: 'Inter', sans-serif;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--team-font);
   }
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-image: radial-gradient(circle at 50% 0%, #1a1a24 0%, #0a0a0c 60%);
-  background-attachment: fixed;
+@layer components {
+  .glass-panel {
+    @apply bg-black/30 backdrop-blur-md border border-white/10 shadow-xl rounded-lg;
+  }
+
+  .hud-panel {
+    @apply bg-gradient-to-br from-black/40 to-black/20 border border-[var(--color-border)] rounded-lg p-4 shadow-lg;
+  }
+
+  .hud-text {
+    @apply font-mono text-sm text-[var(--color-glow)] tracking-wider;
+  }
+
+  .glow-effect {
+    filter: drop-shadow(0 0 8px var(--color-glow)) drop-shadow(0 0 4px var(--color-accent));
+  }
+
+  .scanline {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+    background-size: 100% 2px;
+  }
+
+  .carbon-texture {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    @apply text-[var(--color-glow)];
+  }
+
+  .border-glow {
+    @apply border-[var(--color-border)];
+  }
+
+  .bg-glow {
+    @apply bg-[var(--color-glow)];
+  }
+
+  .accent-color {
+    @apply text-[var(--color-accent)];
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--color-glow), 0 0 40px var(--color-accent);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--color-glow), 0 0 80px var(--color-accent);
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  41.99% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.5;
+  }
+  43% {
+    opacity: 1;
+  }
+  44.99% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes signal-bounce {
+  0%, 100% {
+    height: 4px;
+  }
+  20% {
+    height: 20px;
+  }
+  40% {
+    height: 10px;
+  }
+  60% {
+    height: 25px;
+  }
+  80% {
+    height: 8px;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+.animate-signal {
+  animation: signal-bounce 0.8s ease-in-out infinite;
 }
