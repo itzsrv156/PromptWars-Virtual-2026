@@ -1,0 +1,21 @@
+{
+    "circuit": "Silverstone Grand Prix",
+    "fan_zone": {
+        "simulators": {
+            "wait_time": "45 mins",
+            "status": "Busy"
+        },
+        "merch_store": {
+            "wait_time": "10 mins",
+            "status": "Clear"
+        },
+        "food_court": {
+            "wait_time": "15 mins",
+            "status": "Moderate"
+        },
+        "shuttle_bus": {
+            "wait_time": "5 mins",
+            "status": "Fast"
+        }
+    }
+}
